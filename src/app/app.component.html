@@ -1,0 +1,69 @@
+<!-- 
+    A3 la etqueta <router-outlet>
+    nos permite situar el espacio donde vamos ver aparecer
+    el contendido del componente ...
+ -->
+
+<!-- es imprtante donde va aparecer -->
+<h1>Cbereda de la pagina</h1>
+<hr>
+
+<h4>routerLink  Y routerLinkActive </h4>
+<!-- B1 ROUTER LINK Y ROUTER LINK ACTIVE trabaja externamente en la plantilla html -->
+<!-- no podemos poner los a href porque refresca la pagina 
+en lugar de href contamos conuna directiva con un atributo  que va utilizar
+cualquier elemento html que es routerLink-->
+<!-- routerLink recibe un valor array en consecuencia routerLink se le pone 
+tambien entre corchetes -->
+<!-- aparte tenemos el routerLinkActive es importante porque vamos agregarle 
+la clase que pongamos como valor entre comillas al elemento "a" en el
+caso unicamente que la url sea la que esta en routerLink-->
+<div class="rutas">
+  <a [routerLink]="['/sobre']" routerLinkActive="activa">Sobre Mi</a>
+  <a [routerLink]="['/informacion']" routerLinkActive="activa">Infiormacion de la pagina</a>
+  <a [routerLink]="['/contacto']" routerLinkActive="activa">Contacta con nosotros</a>
+</div>
+<hr>
+
+<h4>Router.navigate</h4>
+<!-- C1 Router.navigate trabaja internamente inyectando el router y haciendo una navegacion-->
+<!--  si queremos navegar despues haber hecho una accion por ejem formularios
+eso se hace en el TS para hcer la navegacion interna de nuestro enlace-->
+<!-- para ello a los tres botones la asginaremos un eveno de click luego al ts C2 -->
+<div class="botones">
+  <button (click)="onClick('sobre')">Sobre mi</button>
+  <button (click)="onClick('informacion')">Informacioan pagina</button>
+  <button (click)="onClick('contacto')">Contacta</button>
+</div>
+<hr>
+
+<h4>Rutas dinamicas</h4>
+<!-- D1 Rutas dinamicas 
+localhost:4200/empleados/122
+localhost:4200/empleados/456
+localhost:4200/empleados/324-->
+<!--  vamos a crear compoente DetalleEmpleado luego en el app-routing.module.ts  D2... -->
+
+<router-outlet></router-outlet>
+<hr>
+
+<h4>Children Routes</h4>
+<!-- E1 Children Routes
+  localhost:4200/empleados/122/proyectos
+localhost:4200/empleados/456/curriculumn
+localhost:4200/empleados/324/experiencia
+tambien tenemos la posibilidad de hacer rutas fijas asociada a una ruta
+padre ruta proncipal...es decir a las rutas dinamicas le podemos agregar rutas fijas
+pero siempre asociada a la ruta padre -->
+<!-- para empezar generamos tres componentes luego en el app-ro ts E2.... -->
+<router-outlet></router-outlet>
+<hr>
+
+<h4>Router Guards</h4>
+<!-- F1 Router Guards 
+
+Lo que hace es limitar el acceso a ciertas rutas
+primero creamos una clase que me haga las comprobaciones y  devuelva true o false
+si deo o no acceder...o con otro Guardsi medeja salir de una ruta o no ...en el app-ro F2 ...-->
+<hr>
+<h3>Subtitulo de la pagina</h3>
